@@ -21,13 +21,14 @@
 		<link rel="stylesheet" href="../css/style-xlarge.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<script type="text/javascript">
-		document.getElementById("subcategoria").disabled=false;
 		function habi(){
 			if(document.getElementById("category").value=="2"){
 				document.getElementById("subcategoria").disabled=false;
+				document.getElementeById("subcategoria").value="";
 		}
 		else{
 			document.getElementById("subcategoria").disabled=true;
+			document.getElementeById("subcategoria").value="";
 		}
 		}</script>
 	</head>
@@ -60,30 +61,30 @@
 						<form method="post" action="#">
 							<div class="row uniform 50%">
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="rut" id="rut" value="" placeholder="Rut" />
+									<input type="text" name="rut" id="rut" value="" placeholder="Rut" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="password" name="password" id="password" value="" placeholder="Password" />
+									<input type="password" name="password" id="password" value="" placeholder="Password" required/>
 								</div>
 								<div class="12u 12u$(xsmall)"></div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="nombre" id=" value="nombre" placeholder="Nombre" />
+									<input type="text" name="nombre" id=" value="nombre" placeholder="Nombre" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="apellidoP" id="apellidoM" value="" placeholder="Apellido Paterno" />
+									<input type="text" name="apellidoP" id="apellidoM" value="" placeholder="Apellido Paterno" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="apellidoM" id=" value="apellidoM" placeholder="Apellido Materno" />
+									<input type="text" name="apellidoM" id=" value="apellidoM" placeholder="Apellido Materno" required/>
 								</div>
 								<!---->
 								<div class="12u 12u$(xsmall)">
 								    <h4>Información de contacto</h4>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="telefono" id="fono" value="" placeholder="Telefono" />
+									<input type="text" name="telefono" id="fono" value="" placeholder="Telefono" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="email" name="email" id="email" value="" placeholder="Email" />
+									<input type="email" name="email" id="email" value="" placeholder="Email" required/>
 								</div>
 								<div class="12u 12u$(xsmall)">
 								    <h4>Cargo</h4>
@@ -91,8 +92,8 @@
 								
 								<div class="4u 12u$(xsmall)">
 									<div class="select-wrapper">
-										<select name="category" id="category" onchange="habi()">
-											<option value="">- Cargo -</option>
+										<select name="category" id="category" onchange="habi()" >
+											<option value="" selected disabled >- Cargo -</option>
 											<option value="1">Gerente</option>
 											<option value="1">Jefe recursos Humanos</option>
 											<option value="1">Administrativo</option>
@@ -101,7 +102,7 @@
 									</div>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="otro" id="subcategoria" value="" placeholder="Otro" disabled="true"/>
+									<input type="text" name="otro" id="subcategoria" value=" " placeholder="Otro" required/>
 								</div>
 								<div class="12u$" style="margin-top:20px;">
 									<ul class="actions">

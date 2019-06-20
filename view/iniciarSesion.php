@@ -53,14 +53,14 @@
 							<div class="Formulario-Login row uniform 25%">
 								<div class="Formulario-Login2">
 									<div class="input-Login 11u$ 12u$(xsmall)">
-										<input type="email" name="email" id="email" value="" placeholder="Email" />
+										<input type="email" name="email" id="email" value="" placeholder="Email" required/>
 									</div>
 									<div class="input-Login 11u$ 12u$(xsmall)">
-										<input type="password" name="password" id="password" value="" placeholder="Password" />
+										<input type="password" name="password" id="password" value="" placeholder="Password" required/>
 									</div>
 									<div class="input-Login 11u$ 12u$(xsmall)">
 										<ul class="actions">
-											<li><input type="submit" value="Iniciar Sesión" class="special" /></li>
+											<li><input type="submit" value="Iniciar Sesión" class="special"/></li>
 										</ul>
 									<div/>
 								</div>		
