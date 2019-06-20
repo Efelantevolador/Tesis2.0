@@ -121,10 +121,38 @@
         $conexion->close();
       }
 
+      public function getbyId($rut){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql="SELECT * FROM postulante WHERE id_rut='".$rut."'";
+        $p=new Postulante();
+        $result = $conexion->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $p->setApellido_Materno($row["apellido_m"]);
+            $p->setApellido_Paterno($row["apellido_p"]);
+            $p->setNombre($row["nombre"]);
+            $p->setCorreo($row["mail"]);
+            $p->setPass($row["pass"]);
+            $p->setRut($row["id_rut"]);
+            $p->setFecha_nacimiento($row["fecha_nacimiento"]);
+            $p->setTelefono($row["telefono"]);
+        }
+        return $p;
+        $conexion->close();
+      }
+
       public function create_postulante(){
         $conn=new Conexion();
         $conexion=$conn->conectar();
-        $sql= "INSERT INTO postulante VALUES ('','".$this->nombre."','".$this->apellido_materno."','".$this->apellido_paterno."','".$this->correo."','".$this->pass."')";
+        $sql= "INSERT INTO postulante VALUES ('".$this->rut."','".$this->nombre."','".$this->apellido_materno."','".$this->apellido_paterno."','".$this->correo."','".$this->pass."','".$this->fecha_nacimiento."','".$this->telefono."','".$this->vivienda."')";
+        if ($conexion->query($sql) === TRUE) {
+            return "exito";
+        } 
+        else{
+            return $conexion->error;
+        }
+        $conexion->close();
       }
     }
 ?>

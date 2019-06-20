@@ -4,7 +4,7 @@
         window.location="../view/index.php";
     }
     function error(){
-        alert("Este correo ya está registrado");
+        alert("Este usuario ya está registrado");
         window.location="../view/registrarU.php";
     }
 </script>
@@ -13,8 +13,10 @@ session_start();
 require("../modelo/Postulante.php");
 require("../modelo/Vivienda.php");
 $p=new Postulante();
-$p->setCorreo($_POST["email"]);
-if($p->getNombre()==null){
+$p=$p->getbyId("123");
+if($p->getRut()==null){
+    $p->setRut("123");
+    $p->setCorreo($_POST["email"]);
     $p->setPass($_POST["password"]);
     $p->setNombre($_POST["name"]);
     $p->setApellido_Paterno($_POST["apellidoP"]);
@@ -28,7 +30,7 @@ if($p->getNombre()==null){
     $v->setRegion($_POST["region"]);
     $v->create_vivienda();
     $p->setVivienda($v->retornar_id());
-    
+    echo $p->create_postulante();
 }
 else{
     echo "<script>error()</script>";
