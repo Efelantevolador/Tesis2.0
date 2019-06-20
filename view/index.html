@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript">
+function habi(){
+		if(document.getElementById("categoria").value=="2"){
+				document.getElementById("subcategoria").disabled=true;
+		}
+		else{
+			document.getElementById("subcategoria").disabled=false;
+		}
+}
+</script>
+</head>
+<body>
+<select id="categoria" onchange="habi()">
+   <option value="">Select one...</option>
+    <option value="uno">uno</option>
+   <option value="dos">dos</option>
+</select>
+ 
+<input type="email" name="email" id="subcategoria" disabled value="" placeholder="Email" />
+ 
+</body>
+</html>
