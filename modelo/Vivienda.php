@@ -63,12 +63,24 @@ class Vivienda{
     public function create_vivienda(){
         $conn=new Conexion();
         $conexion=$conn ->conectar();
-        $sql="INSERT INTO vivienda VALUES('','".$this->region."',".$this->ciudad.",'".$this->comuna."',".$this->calle.",'".$this->num_calle."')";
+        $sql="INSERT INTO vivienda VALUES('',".$this->region.",'".$this->ciudad."','".$this->comuna."','".$this->calle."',".$this->num_calle.")";
         if ($conexion->query($sql) === TRUE) {
             return "exito";
         } 
         else{
             return $conexion->error;
+        }
+        $conexion->close();
+    }
+
+    public function retornar_id(){
+        $conn=new Conexion();
+        $conexion=$conn ->conectar();
+        $sql="SELECT * FROM vivienda WHERE region=".$this->region." AND ciudad='".$this->ciudad."' AND calle='".$this->calle."'AND comuna='".$this->comuna."' AND num_calle=".$this->num_calle."";
+        $result = $conexion->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row["id_vivienda"];
         }
         $conexion->close();
     }

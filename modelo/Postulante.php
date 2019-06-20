@@ -119,6 +119,12 @@
         }
         return $p;
         $conexion->close();
-    }
+      }
+
+      public function create_postulante(){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql= "INSERT INTO postulante VALUES ('','".$this->nombre."','".$this->apellido_materno."','".$this->apellido_paterno."','".$this->correo."','".$this->pass."')";
+      }
     }
 ?>
