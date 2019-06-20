@@ -49,7 +49,7 @@
 					<header class="header major">
 						<h2>Inicio de Sesión</h2>
 					</header>
-						<form method="post" action="#">
+						<form method="post" action="../controlador/Login_postulante.php">
 							<div class="Formulario-Login row uniform 25%">
 								<div class="Formulario-Login2">
 									<div class="input-Login 11u$ 12u$(xsmall)">
