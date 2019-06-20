@@ -1,0 +1,21 @@
+.Formulario-Login{
+    border: 0px red solid!important;
+}
+.Formulario-Login2{
+    border: 0px orange solid!important;
+    width:500px;
+    height:200px;
+    margin-left:35%;
+}
+.input-Login{
+    border:0px blue solid !important;
+    margin:20px;
+    padding:0px;
+}
+.color{
+    background:none;
+    margin:0 auto;
+}
+.header{
+    border-bottom:dotted 1px black;
+}
