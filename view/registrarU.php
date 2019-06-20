@@ -48,22 +48,22 @@
 						<form method="post" action="../controlador/create_postulante.php">
 							<div class="row uniform 50%">
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="name" id="name" value="" placeholder="Nombre" />
+									<input type="text" name="name" id="name" value="" placeholder="Nombre" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="apellidoP" id="apellidoP" value="" placeholder="Apellido Paterno" />
+									<input type="text" name="apellidoP" id="apellidoP" value="" placeholder="Apellido Paterno" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="apellidoM" id="name" value="" placeholder="Apellido Materno" />
+									<input type="text" name="apellidoM" id="name" value="" placeholder="Apellido Materno" required/>
 								</div>
 								<div class="4u$ 12u$(xsmall)">
-									<input type="password" name="password" id="password" value="" placeholder="Password" />
+									<input type="password" name="password" id="password" value="" placeholder="Password" required/>
 								</div>
 								<div class="4u$ 12u$(xsmall)">
-									<input type="text" name="rut" id="rut" value="" placeholder="Rut" />
+									<input type="text" name="rut" id="rut" value="" placeholder="Rut" required/>
 								</div>
 								<div class="4u$ 12u$(xsmall)">
-									<input type="email" name="email" id="email" value="" placeholder="Email" />
+									<input type="email" name="email" id="email" value="" placeholder="Email" required/>
 								</div>
 								<div class="12u 12u$(xsmall)">
 									<h4>Fecha de nacimiento</h4>
@@ -84,7 +84,7 @@
 									<div class="2u 12u$(xsmall)">
 										<div class="select-wrapper">
 											<select name="month" id="category">
-												<option value="">- Mes -</option>
+												<option value="" select disabled>- Mes -</option>
 												<option value="01">Enero</option>
 												<option value="02">Febrero</option>
 												<option value="03">Marzo</option>
@@ -103,7 +103,7 @@
 									<div class="2u 12u$(xsmall)">
 									<div class="select-wrapper">
 											<select name="year" id="category">
-												<option value="">- Año -</option>
+												<option value="" select disabled>- Año -</option>
 												<?php
 													$a=2019;
 													for ($i = 1; $i <=70; $i++){
@@ -119,7 +119,7 @@
 								    <h4>Numero de telefono</h4>
 								</div>
 								<div class="3u 12u$(xsmall)">
-									<input type="text" name="fono" id="telefono" value="" placeholder="Numero de telefono" />
+									<input type="text" name="fono" id="telefono" value="" placeholder="Numero de telefono" required/>
 								</div>
 								<div class="12u 12u$(xsmall)">
 								    <h4>Domicilio</h4>
@@ -127,7 +127,7 @@
 								<div class="4u 12u$(xsmall)">
 									<div class="select-wrapper">
 										<select name="region" id="category">
-											<option value="">- Región -</option>
+											<option value="" select disabled>- Región -</option>
 											<option value="15">Región de Arica y Parinacota</option>
 											<option value="1">Región de Tarapacá</option>
 											<option value="2">Región de Antofagasta</option>
@@ -151,20 +151,20 @@
 								    <h4></h4>
 								</div>
 								<div class="6u 12u$(xsmall)">
-									<input type="text" name="ciudad" id="ciudad" value="" placeholder="Ciudad" />
+									<input type="text" name="ciudad" id="ciudad" value="" placeholder="Ciudad" required/>
 								</div>			
 								<div class="6u 12u$(xsmall)">
-									<input type="text" name="comuna" id="comuna" value="" placeholder="Comuna" />
+									<input type="text" name="comuna" id="comuna" value="" placeholder="Comuna" required/>
 								</div>	
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="calle" id="calle" value="" placeholder="Calle" />
+									<input type="text" name="calle" id="calle" value="" placeholder="Calle" required/>
 								</div>	
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="ncalle" id="ncalle" value="" placeholder="## Numero de Calle" />
+									<input type="text" name="ncalle" id="ncalle" value="" placeholder="## Numero de Calle" required/>
 								</div>	
 								<div class="12u$" style="margin-top:20px;">
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="special" /></li>
+										<li><input type="submit" value="Send Message" class="special"/></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
 								</div>
