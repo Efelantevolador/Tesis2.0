@@ -72,7 +72,7 @@
 									<div class="2u 12u$(xsmall)">
 										<div class="select-wrapper">
 											<select name="day" id="category">
-												<option value="">- Dia -</option>
+												<option value="" selected disabled>- Dia -</option>
 												<?php
 													for ($i = 1; $i <=31; $i++){
 														echo '<option value="'.$i.'">'.$i.'</option>';
