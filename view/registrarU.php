@@ -60,6 +60,9 @@
 									<input type="password" name="password" id="password" value="" placeholder="Password" />
 								</div>
 								<div class="4u$ 12u$(xsmall)">
+									<input type="text" name="rut" id="rut" value="" placeholder="Rut" />
+								</div>
+								<div class="4u$ 12u$(xsmall)">
 									<input type="email" name="email" id="email" value="" placeholder="Email" />
 								</div>
 								<div class="12u 12u$(xsmall)">

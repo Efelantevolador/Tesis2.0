@@ -13,9 +13,9 @@ session_start();
 require("../modelo/Postulante.php");
 require("../modelo/Vivienda.php");
 $p=new Postulante();
-$p=$p->getbyId("123");
+$p=$p->getbyId($_POST["rut"]);
 if($p->getRut()==null){
-    $p->setRut("123");
+    $p->setRut($_POST["rut"]);
     $p->setCorreo($_POST["email"]);
     $p->setPass($_POST["password"]);
     $p->setNombre($_POST["name"]);
