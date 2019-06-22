@@ -7,6 +7,9 @@
         alert("Este usuario no se encuentra registrado");
         window.location="../view/iniciarSesion.php";
     }
+    function inicio(){
+        window.location="../view/index.php";
+    }
 </script>
 <?php
 session_start();
@@ -39,5 +42,18 @@ class Usuario_controller Extends Controlador_Base{
             echo "<script>login_f()</script>";
         }
     }
+
+    public function cerrar(){
+        if(isset($_SESSION["Postulante"])){
+            unset($_SESSION["Postulante"]);
+        }
+        else{
+            unset($_SESSION["Trabajador"]);
+        }
+        echo "<script>inicio()</script>";
+    }
 }
+
+$x=new Usuario_controller();
+$x->cerrar();
 ?>

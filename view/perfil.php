@@ -49,11 +49,19 @@
 
 		<!-- Main -->
 		<?php
+		require_once("../modelo/Postulante.php");
+		require_once("../modelo/Trabajador.php");
 		session_start();
 			if(isset($_SESSION["Trabajador"])){
+				$t=new Trabajador();
+				$t=$_SESSION["Trabajador"];
 				echo "Trabajador";
+				echo $t->getId_rut();
 			}
 			elseif(isset($_SESSION["Postulante"])){
+				$p=new Postulante();
+				$p=$_SESSION["Postulante"];
+				echo substr($p->getFecha_nacimiento(),-2);
 				echo "Postulante";
 			}
 			else{
@@ -164,13 +172,13 @@
                                     <h5>Telefono</h5>
                                 </div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="name" id="rut" value="" placeholder="" disabled required/>
+									<input type="text" name="name" id="rut" value="<?php echo $p->getRut();?>" placeholder="" disabled required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="email" id="email" value="" placeholder="" required/>
+									<input type="text" name="email" id="email" value="<?php echo $p->getCorreo();?>" placeholder="" required/>
                                 </div>
                                 <div class="4u 12u$(xsmall)">
-									<input type="text" name="telefono" id="telefono" value="" placeholder="" required/>
+									<input type="text" name="telefono" id="telefono" value="<?php echo $p->getTelefono();?>" placeholder="" required/>
                                 </div>
                                 
                                 <div class="12u 12u$(xsmall)"></div>
@@ -185,13 +193,13 @@
                                     <h5>Apellido Materno</h5>
                                 </div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="name" id="name" value="" placeholder="" required/>
+									<input type="text" name="name" id="name" value="<?php echo $p->getNombre();?>" placeholder="" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="apellidoP" id="apellidoP" value="" placeholder="" required/>
+									<input type="text" name="apellidoP" id="apellidoP" value="<?php echo $p->getApellido_Paterno();?>" placeholder="" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="apellidoM" id="apellidoM" value="" placeholder="" required/>
+									<input type="text" name="apellidoM" id="apellidoM" value="<?php echo $p->getApellido_Materno();?>" placeholder="" required/>
                                 </div>
                                 <div class="12u 12u$(xsmall)">
 									<h5>Fecha de nacimiento</h5>
@@ -199,10 +207,14 @@
                                 <div class="2u 12u$(xsmall)">
                                     <div class="select-wrapper">
                                         <select name="day" id="category">
-                                            <option value="" selected disabled>- Dia -</option>
+                                            <option value=""disabled>- Dia -</option>
                                             <?php
                                                 for ($i = 1; $i <=31; $i++){
-                                                    echo '<option value="'.$i.'">'.$i.'</option>';
+													if(substr($p->getFecha_nacimiento(),-2)==$i){
+														echo '<option value="'.$i.'" selected>'.$i.'</option>';
+													}else{
+														echo '<option value="'.$i.'">'.$i.'</option>';
+													}
                                                 }
                                             ?>
                                         </select>
@@ -230,11 +242,16 @@
                                 <div class="2u 12u$(xsmall)">
                                     <div class="select-wrapper">
                                         <select name="year" id="category">
-                                            <option value="" selected disabled>- Año -</option>
+                                            <option value=""disabled>- Año -</option>
                                             <?php
                                                 $a=2019;
                                                 for ($i = 1; $i <=70; $i++){
-                                                    echo '<option value="'.$a.'">'.$a.'</option>';
+													if(substr($p->getFecha_nacimiento(),0,-6)==$i){
+														echo '<option value="'.$a.'" selected>'.$a.'</option>';
+													}
+													else{
+														echo '<option value="'.$a.'">'.$a.'</option>';
+													}
                                                     $a=$a-1;
                                                 }
                                             ?>

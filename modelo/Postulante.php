@@ -1,5 +1,6 @@
 <?php
   require_once("conexion.php");
+  require_once("Vivienda.php");
     class Postulante
     {
       private $rut;
@@ -106,6 +107,7 @@
         $sql = "SELECT * FROM postulante WHERE mail='".$this->correo."' AND pass='".$this->pass."'";
         $result = $conexion->query($sql);
         $p=new Postulante();
+        $viv=new Vivienda();
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $p->setApellido_Materno($row["apellido_m"]);
@@ -116,6 +118,8 @@
             $p->setPass($row["pass"]);
             $p->setFecha_nacimiento($row["fecha_nacimiento"]);
             $p->setTelefono($row["telefono"]);
+            $viv->setId($row["vivienda"]);
+            $p->setVIvienda($viv->getbyId());
         }
         return $p;
         $conexion->close();
