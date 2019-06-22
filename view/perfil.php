@@ -68,6 +68,7 @@
 				echo "NADIE";
 			}
 		?>
+		<!-- BODY -->
 			<section id="main" class="wrapper">
 				<div class="container">
 
@@ -145,6 +146,7 @@
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+			<!-- |||||||||||||||||||||||||||||||||||||||||||CAMBIO DE PERFIL||||||||||||||||||||||||||||||||||||||||||||||||| -->
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
@@ -158,8 +160,10 @@
 					</header>
 
 					<!-- FORMULARIO POSTULANTE -->
-					<section>
-						<h3>Formulario de Registro</h3>
+					<section style="border:1px orange solid;margin-bottom:20px;padding:10px;">
+						<header style="border:1px orange solid;margin-bottom:20px;padding:10px;">
+							<h3>Informacion Postulante</h3>
+						</header>
 						<form method="post" action="../controlador/create_postulante.php">
 							<div class="row uniform 50%">
                                 <div class="4u 12u$(xsmall)">
@@ -320,8 +324,167 @@
 							</div>
 						</form>
 					</section>
+
+
+
+
+					
+					<section style="border:1px blue solid;margin-bottom:20px;padding:10px;">
+                        <header style="border:1px blue solid;margin-bottom:20px;">
+                            <h3>Situación Educacional</h3>
+                        </header>
+                        <form method="post" action="../view/perfil.php">
+                            <div class="row uniform 50%">
+                                <div class="4u 12u$(xsmall)">
+                                    <h5>Nivel Educacional</h5>
+                                </div>
+                                <div class="4u 12u$(xsmall)">
+                                    <h5>Titulos cursados u obtenidos</h5>
+                                </div>
+                                <div class="4u 12u$(xsmall)">
+                                    <h5>Institución</h5>
+                                </div>
+                                <div class="4u 12u$(xsmall)">
+                                    <div class="select-wrapper">
+                                        <select name="region" id="category" >
+                                            <option value="" selected disabled>- Seleccione -</option>
+                                            <option value="0">Educación Especial</option>
+                                            <option value="0">Educación básica</option>
+                                            <option value="0">Educación básica</option>
+                                            <option value="0">Educación media incompleta</option>
+                                            <option value="0">Educación media completa</option>
+                                            <option value="0">Educación media técnico profecional incompleta</option>
+                                            <option value="0">Educación media técnico profecional completa</option>
+                                            <option value="0">Educación Superior incompleta</option>
+                                            <option value="0">Educación Superior completa</option>
+                                            <option value="0">Post-grado</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="4u 12u$(xsmall)">
+                                    <input type="text" name="" id="" value="" placeholder="" required/>
+                                </div>
+                                <div class="4u 12u$(xsmall)">
+                                    <input type="text" name="" id="" value="" placeholder="" required/>
+                                </div>
+                                <div class="12u 12u$(xsmall)">
+                                    <h5>Año egresado</h5>
+                                </div>
+                                <div class="2u 12u$(xsmall)">
+                                    <div class="select-wrapper">
+                                        <select name="year" id="category">
+                                            <option value="" select disabled>- Año -</option>
+                                            <?php
+                                                $a=2019;
+                                                for ($i = 1; $i <=70; $i++){
+                                                    echo '<option value="'.$a.'">'.$a.'</option>';
+                                                    $a=$a-1;
+                                                }
+                                            ?>
+                                        </select>
+									</div>
+                                </div>
+                                <div class="4u 12u$(xsmall)" style="margin-top:0px;">
+									<ul class="actions">
+										<li><input type="submit" value=" + Agregar Titulo" class="special"/></li>
+									</ul>
+                                </div> 
+                                <div class="12u 12u$(xsmall)" style="margin-top:20px;">
+                                    <div class="table-wrapper">
+                                        <table class="alt">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nivel Educacional</th>
+                                                    <th>Titulos Cursados u Obtenidos</th>
+                                                    <th>Institución</th>
+                                                    <th>Año Egresado</th>
+                                                    <th>Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Educacion Superior Completa</td>
+                                                    <td>Analista</td>
+                                                    <td>Inacap</td>
+                                                    <td>2019</td>
+                                                    <td Style="text-decoration:underline;"><a href="">Eliminar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Educacion Media Completa</td>
+                                                    <td>4to medio</td>
+                                                    <td>Boston Collegue</td>
+                                                    <td>2015</td>
+                                                    <td Style="text-decoration:underline;"><a href="">Eliminar</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>  
+                                </div>
+                            </div>    
+                        </form>
+                    </section>
+
+
+
+
+
+
+                    <section style="border:1px black solid;padding:10px;">
+                        <header style="border:1px black solid;margin-bottom:20px;">
+                            <h3>Perfil Funcional</h3>
+                        </header>
+                        <form method="post" action="../view/perfil.php">
+                            <div class="row uniform 50%">
+                                <div class="2u 12u$(xsmall)"></div>
+                                <div class="10u 12u$(xsmall)">
+                                    <h5>Discapacidad</h5>
+                                </div>
+                                <div class="2u 12u$(xsmall)"></div>
+                                <div class="6u 12u$(xsmall)">
+                                    <div class="select-wrapper">
+                                        <select name="region" id="category" >
+                                            <option value="" selected disabled>- Seleccione -</option>
+                                            <option value="0">DOGE</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="4u 12u$(xsmall)" style="margin-top:0px;">
+									<ul class="actions">
+										<li><input type="submit" value=" + Agregar" class="special"/></li>
+									</ul>
+                                </div> 
+                                <div class="2u 12u$(xsmall)"></div>
+                                <div class="7u 12u$(xsmall)" style="margin-top:20px;">
+                                    <div class="table-wrapper">
+                                        <table class="alt">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre discapacidad</th>
+                                                    <th>Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Rodrigo (enfermito)</td>
+                                                    <td Style="text-decoration:underline;"><a href="">Eliminar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Doge (Enfermizo)</td>
+                                                    <td Style="text-decoration:underline;"><a href="">Eliminar</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>  
+                                </div>
+                                
+                            </div>    
+                        </form>
+                    </section>
 				</div>
             </section>
+			<ul class="actions">
+				<li><input type="submit" value="Cerrar Sesión" class="special"/></li>
+			</ul>
             
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
