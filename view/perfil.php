@@ -48,6 +48,18 @@
 			</header>
 
 		<!-- Main -->
+		<?php
+		session_start();
+			if(isset($_SESSION["Trabajador"])){
+				echo "Trabajador";
+			}
+			elseif(isset($_SESSION["Postulante"])){
+				echo "Postulante";
+			}
+			else{
+				echo "NADIE";
+			}
+		?>
 			<section id="main" class="wrapper">
 				<div class="container">
 
@@ -115,7 +127,11 @@
 						</form>
 					</section>
 				</div>
-            </section>
+			</section>
+			
+			<?php
+			
+			?>
             
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->

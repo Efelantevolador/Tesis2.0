@@ -45,7 +45,9 @@
 					<!-- Form -->
 					<section>
 						<h3>Formulario de Registro</h3>
-						<form method="post" action="../controlador/create_postulante.php">
+						<form method="post" action="../controlador/ControladorBase.php">
+						<input type="hidden" name="c" value="Postulante_controller" />
+        				<input type="hidden" name="a" value="crear" />
 							<div class="row uniform 50%">
 								<div class="4u 12u$(xsmall)">
 									<input type="text" name="name" id="name" value="" placeholder="Nombre" required/>

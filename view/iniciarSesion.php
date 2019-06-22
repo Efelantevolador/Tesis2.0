@@ -49,7 +49,9 @@
 					<header class="header major">
 						<h2>Inicio de Sesión</h2>
 					</header>
-						<form method="post" action="../controlador/Login_postulante.php">
+						<form method="post" action="../controlador/ControladorBase.php">
+						<input type="hidden" name="c" value="Usuario_controller" />
+        				<input type="hidden" name="a" value="login" />
 							<div class="Formulario-Login row uniform 25%">
 								<div class="Formulario-Login2">
 									<div class="input-Login 11u$ 12u$(xsmall)">
