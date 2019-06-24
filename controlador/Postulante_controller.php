@@ -11,6 +11,15 @@
         alert("Complete todos los campos");
         window.location="../view/registrarU.php";
     }
+    function update_v(){
+        alert("Los datos fueron guardados exitosamente");
+        window.location="../view/perfil.php";
+    }
+    function update_f(){
+        alert("Error al modificar los datos");
+        window.location="../view/perfil.php";
+    }
+
 </script>
 <?php
     require_once("../modelo/Postulante.php");
@@ -19,6 +28,32 @@
 
         public function __construct() {
             
+        }
+
+        public function update(){
+            $p=new Postulante();
+            $viv=new Vivienda();
+            $p=$_SESSION["Postulante"];
+            $viv=$p->getVivienda();
+            $p->setCorreo($_POST["email"]);
+            $p->setTelefono($_POST["telefono"]);
+            $p->setNombre($_POST["name"]);
+            $p->setApellido_Paterno($_POST["apellidoP"]);
+            $p->setApellido_Materno($_POST["apellidoM"]);
+            $p->setFecha_nacimiento($_POST["year"]."-".$_POST["month"]."-".$_POST["day"]);
+            $viv->setCalle($_POST["calle"]);
+            $viv->setCiudad($_POST["ciudad"]);
+            $viv->setComuna($_POST["comuna"]);
+            $viv->setNum_calle($_POST["ncalle"]);
+            $viv->setRegion($_POST["region"]);
+            if($p->update()&&$viv->update_vivienda()){
+                $p->setVivienda($viv);
+                $_SESSION["Postulante"]=$p;
+                echo "<script>update_v()</script>";
+            }
+            else{
+                echo "<script>update_f()</script>";
+            }
         }
 
         public function crear(){
@@ -56,6 +91,5 @@
                 }
             }
         }
-
     }
 ?>

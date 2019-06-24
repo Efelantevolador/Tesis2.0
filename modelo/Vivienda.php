@@ -91,7 +91,7 @@ class Vivienda{
         $sql="SELECT * FROM vivienda WHERE id_vivienda=".$this->id_vivienda."";
         $result = $conexion->query($sql);
         $viv=new Vivienda();
-        if ($result->num_rows > 0) {
+        $result->num_rows();
             $row = $result->fetch_assoc();
             $viv->setCalle($row["calle"]);
             $viv->setRegion($row["region"]);
@@ -99,8 +99,19 @@ class Vivienda{
             $viv->setComuna($row["comuna"]);
             $viv->setNum_calle($row["num_calle"]);
             $viv->setId($row["id_vivienda"]);
-        }
+        
         return $viv;
+    }
+
+    public function update_vivienda(){
+        $conn=new Conexion();
+        $conexion=$conn ->conectar();
+        $sql="UPDATE vivienda SET region='".$this->region."',ciudad='".$this->ciudad."',comuna='".$this->comuna."',calle='".$this->calle."',num_calle='".$this->num_calle."' WHERE id_vivienda=".$this->id_vivienda."";
+        if ($conexion->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 ?>

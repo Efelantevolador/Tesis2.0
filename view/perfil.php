@@ -1,3 +1,9 @@
+<script>
+    function inicio(){
+        alert("Debes iniciar sesion para entrar aquí");
+        window.location="../view/index.php";
+    }
+</script>
 <!DOCTYPE html>
 <!--
 	Interphase by TEMPLATED
@@ -50,25 +56,14 @@
 		<!-- Main -->
 		<?php
 		require_once("../modelo/Postulante.php");
-		require_once("../modelo/Trabajador.php");
+        require_once("../modelo/Trabajador.php");
+        require_once("../modelo/Vivienda.php");
 		session_start();
 			if(isset($_SESSION["Trabajador"])){
 				$t=new Trabajador();
 				$t=$_SESSION["Trabajador"];
-				echo "Trabajador";
-				echo $t->getId_rut();
-			}
-			elseif(isset($_SESSION["Postulante"])){
-				$p=new Postulante();
-				$p=$_SESSION["Postulante"];
-				echo substr($p->getFecha_nacimiento(),-2);
-				echo "Postulante";
-			}
-			else{
-				echo "NADIE";
-			}
 		?>
-		<!-- BODY -->
+        <!-- BODY -->
 			<section id="main" class="wrapper">
 				<div class="container">
 
@@ -91,13 +86,13 @@
                                     <h5>Email</h5>
                                 </div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="rut" id="rut" value="" placeholder="" disabled required/>
+									<input type="text" name="rut" id="rut" value="<?php echo $t->getId_rut();?>" placeholder="" disabled required/>
                                 </div>
                                 <div class="4u 12u$(xsmall)">
-									<input type="text" name="telefono" id="fono" value="" placeholder="" required/>
+									<input type="text" name="telefono" id="fono" value="<?php echo $t->getTelefono();?>" placeholder="" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="email" name="email" id="email" value="" placeholder="" required/>
+									<input type="email" name="email" id="email" value="<?php echo $t->getMail();?>" placeholder="" required/>
                                 </div>
                                 
                                 <div class="12u 12u$(xsmall)"></div>
@@ -113,19 +108,19 @@
                                     <h5>Apellido Materno</h5>
                                 </div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="nombre" id="nombre" value="" placeholder="" required/>
+									<input type="text" name="nombre" id="nombre" value="<?php echo $t->getNombre();?>" placeholder="" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="apellidoP" id="apellidoP" value="" placeholder="" required/>
+									<input type="text" name="apellidoP" id="apellidoP" value="<?php echo $t->getApellido_p();?>" placeholder="" required/>
 								</div>
 								<div class="4u 12u$(xsmall)">
-									<input type="text" name="apellidoM" id="apellidoM" value="" placeholder="" required/>
+									<input type="text" name="apellidoM" id="apellidoM" value="<?php echo $t->getApellido_m();?>" placeholder="" required/>
 								</div>
 								<div class="12u 12u$(xsmall)">
 								    <h4>Cargo</h4>
 								</div>
 								<div class="4u 12u$(xsmall)">
-                                <input type="text" name="cargo" id="cargo" value="" placeholder="" required/>
+                                <input type="text" name="cargo" id="cargo" value="<?php echo $t->getCargo();?>" placeholder="" required/>
 								</div>
 								<div class="12u$" style="margin-top:20px;">
 									<ul class="actions">
@@ -139,7 +134,13 @@
 			</section>
 			
 			<?php
-			
+                }
+                elseif(isset($_SESSION["Postulante"])){
+                    $p=new Postulante();
+                    $viv=new Vivienda();
+                    $p=$_SESSION["Postulante"];
+                    $viv=$p->getVivienda();
+                
 			?>
             
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
@@ -164,7 +165,7 @@
 						<header style="border:1px orange solid;margin-bottom:20px;padding:10px;">
 							<h3>Informacion Postulante</h3>
 						</header>
-						<form method="post" action="../controlador/create_postulante.php">
+						<form method="post" action="../controlador/ControladorBase.php">
 							<div class="row uniform 50%">
                                 <div class="4u 12u$(xsmall)">
                                     <h5>Rut</h5>
@@ -227,8 +228,8 @@
                                 <div class="2u 12u$(xsmall)">
                                     <div class="select-wrapper">
                                         <select name="month" id="category">
-                                            <option value="" selected disabled>- Mes -</option>
-                                            <option value="01">Enero</option>
+                                            <option value="" disabled>- Mes -</option>
+                                            <option value="01" selected>Enero</option>
                                             <option value="02">Febrero</option>
                                             <option value="03">Marzo</option>
                                             <option value="04">Abril</option>
@@ -304,16 +305,16 @@
                                     <h5>Numero de Calle</h5>
                                 </div>
 								<div class="3u 12u$(xsmall)">
-									<input type="text" name="ciudad" id="ciudad" value="" placeholder="" required/>
+									<input type="text" name="ciudad" id="ciudad" value="<?php echo $viv->getCiudad();?>" placeholder="" required/>
 								</div>			
 								<div class="3u 12u$(xsmall)">
-									<input type="text" name="comuna" id="comuna" value="" placeholder="" required/>
+									<input type="text" name="comuna" id="comuna" value="<?php echo $viv->getComuna();?>" placeholder="" required/>
 								</div>	
 								<div class="3u 12u$(xsmall)">
-									<input type="text" name="calle" id="calle" value="" placeholder="" required/>
+									<input type="text" name="calle" id="calle" value="<?php echo $viv->getCalle();?>" placeholder="" required/>
                                 </div>
                                 <div class="3u 12u$(xsmall)">
-                                    <input type="text" name="ncalle" id="ncalle" value="" placeholder="" required/>
+                                    <input type="text" name="ncalle" id="ncalle" value="<?php echo $viv->getNum_calle();?>" placeholder="" required/>
                                 </div>
 
 								<div class="12u$" style="margin-top:20px;">
@@ -321,7 +322,9 @@
 										<li><input type="submit" value="Guardar informacion" class="special"/></li>
 									</ul>
 								</div>
-							</div>
+                            </div>
+                            <input type="hidden" name="c" value="Postulante_controller" />
+        				    <input type="hidden" name="a" value="update" />
 						</form>
 					</section>
 
@@ -482,8 +485,18 @@
                     </section>
 				</div>
             </section>
+            <?php
+            }
+            else{
+                echo "<script>inicio()</script>";
+            }
+            ?>
 			<ul class="actions">
-				<li><input type="submit" value="Cerrar Sesión" class="special"/></li>
+            <form method="post" action="../controlador/ControladorBase.php">
+                    <input type="hidden" name="c" value="Usuario_controller" />
+        			<input type="hidden" name="a" value="cerrar" />
+                    <input type="submit" value="Cerrar Sesión" class="special"/>
+            </form>
 			</ul>
             
             <!-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->

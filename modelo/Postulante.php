@@ -12,7 +12,7 @@
       private $fecha_nacimiento;
       private $telefono;
       private $vivienda;
-      private $lista_discapacidad;
+      //private $lista_discapacidad;
     
       public function __construct() {
         
@@ -93,13 +93,13 @@
         return $this->vivienda;
       }
     
-      public function setLista_discapacidad($lista){
+      /*public function setLista_discapacidad($lista){
         $this->lista_discapacidad=$lista;
       }
     
       public function getLista_discapacidad(){
         return $this->lista_discapacidad;
-      }
+      }*/
 
       public function login_postulante(){
         $conn=new Conexion();
@@ -144,6 +144,17 @@
         }
         return $p;
         $conexion->close();
+      }
+
+      public function update(){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql="UPDATE postulante set nombre='".$this->nombre."', apellido_m='".$this->apellido_materno."',apellido_p='".$this->apellido_paterno."', mail='".$this->correo."',fecha_nacimiento='".$this->fecha_nacimiento."', telefono='".$this->telefono."' WHERE id_rut='".$this->rut."'";
+        if ($conexion->query($sql) === TRUE) {
+          return true;
+        } else {
+          return false;
+        }
       }
 
       public function create_postulante(){

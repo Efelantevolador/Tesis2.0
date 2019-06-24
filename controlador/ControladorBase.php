@@ -15,6 +15,10 @@
             foreach(glob("*.php") as $file){
                 require_once $file;
             }
+            foreach(glob("../modelo/*.php") as $file){
+                require_once $file;
+            }
+            session_start();
         }
 
         /**

@@ -12,11 +12,9 @@
     }
 </script>
 <?php
-session_start();
 require_once("../modelo/Postulante.php");
 require_once("../modelo/Trabajador.php");
 class Usuario_controller Extends Controlador_Base{
-    
     public function __construct() {
             
     }
@@ -32,14 +30,14 @@ class Usuario_controller Extends Controlador_Base{
         $trab=$trab->login_trabajador();
         if($pos->getNombre()!=null){
             $_SESSION["Postulante"]=$pos;
-            echo "<script>login_v()</script>";
+            return "<script>login_v()</script>";
         }
         elseif($trab->getNombre()!=null){
             $_SESSION["Trabajador"]=$trab;
-            echo "<script>login_v()</script>";
+            return "<script>login_v()</script>";
         }
         else{
-            echo "<script>login_f()</script>";
+            return "<script>login_f()</script>";
         }
     }
 
@@ -50,10 +48,7 @@ class Usuario_controller Extends Controlador_Base{
         else{
             unset($_SESSION["Trabajador"]);
         }
-        echo "<script>inicio()</script>";
+        return "<script>inicio()</script>";
     }
 }
-
-$x=new Usuario_controller();
-$x->cerrar();
 ?>
